@@ -1,0 +1,83 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dodaj kategoriju</title>
+    <style>
+        div.row {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <script>
+
+        var username = true;
+        function NazivEmpty() {
+            if ($("#Naziv").val() == "") {
+
+                    $("#Status1").html('<font color="Red">Ovo polje mora biti popunjeno!</font>');
+                    $("#Naziv").css("border-color", "Red");
+
+            }else{
+                    $.post("@Url.Action("CheckCategoryAvailability", "Administrator")",
+                    {
+                        userdata: $("#Naziv").val()
+                    },
+                    function (data) {
+                        if (data == 0) {
+                            $("#Status1").html('');
+                            $("#Naziv").css("border-color", "lightgray");
+                            username = true;
+                        } else {
+                            $("#Status1").html('<font color="Red">Kategorija sa ovim nazivom vec postoji!</font>');
+                            $("#Naziv").css("border-color", "Red");
+                            username = false;
+                        }
+                    });
+            }
+        }
+
+        function validateForm() {
+            var dobro = true;
+
+            if ($("#Naziv").val() == "") {
+                $("#Status1").html('<font color="Red">Ovo polje mora biti popunjeno!</font>');
+                $("#Naziv").css("border-color", "Red");
+                dobro = false;
+            } else if (username) {
+                $("#Status1").html('');
+                $("#Naziv").css("border-color", "lightgray");
+            }
+
+            return dobro && username;
+        }
+    </script>
+</head>
+<body>
+    <h2>Dodajte novu kategoriju:</h2>
+    <br />
+    <form method="post" action="~/Administrator/KategorijaIzmenjena?id=@ViewBag.Id" onsubmit="return validateForm()">
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-sm-2">Novi naziv:</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" placeholder="Unesite novi naziv kategorije" maxlength="30" id="Naziv" name="Naziv" onchange="NazivEmpty()" />
+                </div>
+                <label class="col-sm-4" id="Status1"></label>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-4">
+                    <input class="btn btn-primary" type="submit" value="Izmeni" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
