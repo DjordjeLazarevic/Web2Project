@@ -81,8 +81,7 @@ Napomena: Vreme dostave je nasumičan izbor vremena (>1h). Nakon toga porudžb
 prethodne porudžbine. Kupac može otkazati porudžbinu sat vremena nakon vremena poručivanja (u tom
 slučaju vratiti količinu na prethodno stanje).
 #### 2.5.4. Verifikacija
-Administrator vidi listu prodavaca kao i njihov status, može da im odobri ili odbije status i vidi koji su
-odobreni.
+Administrator vidi listu prodavaca kao i njihov status, može da im odobri ili odbije status i vidi koji su odobreni.
 #### 2.5.5. Prethodne porudžbine
 Kupac može da vidi listu svojih prethodnih porudžbina. Ne prikazuju se otkazane porudžbine.
 #### 2.5.6. Nove porudžbine
