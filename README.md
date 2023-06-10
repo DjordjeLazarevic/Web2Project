@@ -88,7 +88,7 @@ Kupac može da vidi listu svojih prethodnih porudžbina. Ne prikazuju se otkaz
 Prodavac vidi spisak novih porudžbina, prikazuje se i vreme dostave ISTO kao i kupcu koji čeka tu dostavu.
 #### 2.5.7. Moje porudžbine
 Prodavac može da vidi prethodne porudžbine.
-####2.5.8. Sve porudžbine
+#### 2.5.8. Sve porudžbine
 Administrator ima uvid u sve porudžbine kao i njihov status. Za porudžbine u toku nije potrebno
 odbrojavanje do dostave.
 ## 3. Implementacija sistema
